@@ -1,19 +1,20 @@
-# stable official Java runtime base image
+#from this command we download all dependencies and libaries for java
+
 FROM openjdk:17-jdk-alpine
 
-# metadata
-LABEL maintainer="your-email@example.com"
-LABEL version="1.0"
-LABEL description="A simple Java application"
+#working directory where app will run
 
-# working directory
 WORKDIR /app
 
-# Copy source code into the container
-COPY src/Main.java /app/Main.java
+#copy source code into the container of docker
 
-# Compile the Java code
+COPY src/Main.java  /app/Main.java
+
+#compile the java code
+
 RUN javac Main.java
 
-# Run the Java application when the container starts
-CMD ["java", "Main"]
+#run the java application
+
+CMD ["java","Main"]
+
